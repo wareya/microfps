@@ -1,0 +1,47 @@
+<style type="text/css">canvas{display:block;border:1px solid black;margin:auto;transform-origin:top;transform:scale(5.0)}</style>
+<script>D=[
+0,0,0,0,0,0,0,0,0,
+0,1,1,1,1,1,1,1,0,
+0,1,1,1,1,1,1,1,0,
+0,1,1,1,1,1,1,1,0,
+0,1,1,1,1,1,1,1,0,
+0,1,1,1,1,1,1,1,0,
+0,1,1,1,1,1,1,1,0,
+0,1,1,1,1,1,1,1,0,
+0,0,0,0,0,0,0,0,0,]
+T=true
+F=false
+M=Math
+R=M.round
+x=5
+y=6
+a=0
+T=(a)=>
+{
+I=-M.cos(a)
+J=M.sin(a)
+L=0
+while(D[R(y+L*I)*9+R(x+L*J)])L+=0.1
+return L
+}
+E=0
+Z=window.requestAnimationFrame
+F=(t)=>
+{
+d=t-E
+a+=d*0.001
+E=t
+c=document.getElementById("c").getContext("2d")
+c.clearRect(0,0,99,99)
+for(i=0.;i<99;i+=1.){
+n=a+(i/165-0.3)*4
+m=T(n)
+Q=m*m
+c.globalAlpha=1-2/(Q)
+c.fillRect(i,45-100/Q,1,100/Q*2)
+a+=d*0.00001
+}
+Z(F)
+}
+Z(F)
+</script><canvas id=c width=99 height=99>
