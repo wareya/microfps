@@ -1,21 +1,22 @@
-<canvas><script>$=0xf6fffbddfdffdfffn.toString(2).split("")
-M=Math
+<canvas id=A style="width:99%;border:solid"><script>$=0xf6fffbddfdffdfffn.toString(2).split("")
 a=U=D=L=R=0
 _=v=>e=>this["ULDR".match(e.key[5])]=v
-onkeydown=_(.02)
+onkeydown=_(.002)
 onkeyup=_(0)
+g=Date.now
+t=g()
 x=y=5
-r=M.round
-P=(X,Y)=>$[r(Y&7)*8+r(X&7)]
-T=a=>{for(I=M.cos(a),J=M.sin(a),l=0;P(x+l*J,y-l*I)&l<50;m=99/l)l+=.01}
-setInterval(Q=>{a+=R-L
+P=(X,Y)=>$[(X&7)+(Y&7)*8]
+T=a=>{for(I=Math.cos(a),J=Math.sin(a),l=0;P(x+l*J,y-l*I)&l<50;m=99/l)l+=.01}
+setInterval(Q=>{d=g()-t
+t=g()
+a+=R*d-L*d
+Q=A.width+=0
 T(a)
-v=U-D
+v=U*d-D*d
 u=J*v
 v=I*v
 x+=u*P(x+u,y)
 y-=v*P(x,y-v)
-c=document.all[3].getContext("2d")
-c.clearRect(0,0,Q,Q)
-for(i=0;i<Q;i++)T(a+i*2/Q-1),c.fillRect(i,75-m,1-.9/(8/m+1),m*2)
-},8,300)</script><style>*{width:99%}* * *{border:solid
+for(i=0;i<Q;i++)T(a+i*2/Q-1),A.getContext("2d").fillRect(i,75-m,1-.9/(8/m+1),m*2)
+})</script>
